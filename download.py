@@ -4,7 +4,7 @@ import zipfile
 import shutil
 
 # Define constants
-MERGED_ZIP_PATH = "merged.zip"
+MERGED_ZIP_PATH = "file.zip"
 TEMP_DIR = "temp"  # Temporary directory for storing ZIP parts
 TOKEN = os.environ['TOKEN']
 CHANNEL_ID = 1318789217509441586  # Replace with your target channel ID
