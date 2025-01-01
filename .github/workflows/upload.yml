@@ -1,0 +1,39 @@
+name: Upload
+
+on:
+  schedule:
+    - cron: "30 20 * * *"  # Runs every day at midnight (UTC)
+  workflow_dispatch:     # Allows manual triggering
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true  # Required for FFmpeg installation
+  TOKEN: ${{ secrets.TOKEN}}
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup FFmpeg
+        uses: federicocarboni/setup-ffmpeg@v3.1
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.12.2'
+
+      - name: Install requirements
+        run: pip install -r r.txt
+
+
+      - name: Download
+        run: python download.py
+
+      - name: Download
+        run: python unzip.py
+        
+      - name: Process
+        run: python main.py
