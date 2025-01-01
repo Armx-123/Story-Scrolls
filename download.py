@@ -7,7 +7,7 @@ import shutil
 MERGED_ZIP_PATH = "file.zip"
 TEMP_DIR = "temp"  # Temporary directory for storing ZIP parts
 TOKEN = os.environ['TOKEN']
-CHANNEL_ID = 1318789217509441586  # Replace with your target channel ID
+CHANNEL_ID = 1303910229448200293  # Replace with your target channel ID
 
 # Ensure temp directory exists
 os.makedirs(TEMP_DIR, exist_ok=True)
